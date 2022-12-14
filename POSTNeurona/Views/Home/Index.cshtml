@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        @*<div class="col-md-4 d-none d-sm-none d-md-block" style="border-radius: 0.25rem;">
+            
+            
+                <div class="row mb-4 px-2">
+                    <h4 class="col col-6 p-2 ">Historial</h4>
+                    <button type="button" class="col col-6 btn btn-outline-danger btn-sm p-1" id="clear-items">Limpiar</button>
+                </div>
+                
+
+                <div class="panel panel-primary">
+
+                    <div class="panel-body">
+                        <div class="list-group " id="listaHistorial">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>*@
+            <div class="col-md-12">
+                <div class="card main-card border">
+                    <article class="card-body">
+                        <h4 class="card-title text-center">POSTNeurona</h4>
+                        <p class="card-title text-center">Consultar endpoints</p>
+                    <form id="myForm">
+                        <div class="card-inside row">
+                            <div class="col-md-12">
+                                <label for="url_input" class="form-label"> URL</label>
+                                <input id="url_input" list="datalistOptions" name="url_input" type="text" class="form-control form-control-lg input-background col-12" style="font-size:medium" aria-describedby="basic-addon3">
+                                <datalist id="datalistOptions" class="input-background"></datalist>
+                            </div>
+                        </div>
+                        <div class="card-inside row">
+                            <div class="col-md-4">
+                                <label for="method_api" class="form-label"> PRODUCTO</label>
+                                <select id="method_api" name="method_api" class="form-select input-background col-12" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" onchange="cargarSubMetodos();">
+                                    <option value="">Seleccione una opci&oacute;n...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="sub_metodo" class="form-label">TOKENS</label>
+                                <select name="sub_metodo" id="sub_metodo" class="form-select input-background col-12" disabled aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    <option value="">Seleccione una opci&oacute;n...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="method_input" class="form-label"> METODO</label>
+                                <select id="method_input" name="method_input" class="form-select input-background col-12" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    <option selected value="default">Seleccione</option>
+                                    <option value="1">GET</option>
+                                    <option value="2">POST</option>
+                                    <option value="3">PUT</option>
+                                    @*<option disabled value="4">DELETE</option>*@
+                                </select>
+                            </div>
+                            </div>
+                            <div class="card-inside row justify-content-lg-end" id="requestTextareaContainer">
+                                <label for="method_input" class="form-label"> BODY</label>
+                                <textarea class="form-control col-12 input-background" id="requestTextarea" name="requestTextarea" cols="5" rows="5"></textarea>
+                                <button id="clearRequest" type="button" class="btn btn-custom col col-2 mx-3 my-1 btn-sm">Limpiar</button>
+                                <button id="jsonFormatRequest" type="button" class="btn btn-custom col col-2 my-1  btn-sm">JSON Formatter</button>
+                            </div>
+                            @* </div> *@
+                            <div class="card-inside">
+                                <button id="sendReuqest" type="submit" class="btn btn-custom">
+                                    <span id="buttom_text">
+                                        Aceptar
+                                    </span>
+
+                                </button>
+                            </div>
+</form>
+                    </article>
+
+
+                </div> <!-- card.// -->
+
+                <hr />
+                <div class="card main-card border">
+
+                    <article class="card-body">
+
+                        <h4 class="card-title mt-3 text-center">RESPONSE</h4>
+
+                        <div class="mb-3 row" id="responseContainer">
+                            <textarea class="form-control col-12 input-background" id="responseTextarea" cols="100" rows="10"></textarea>
+                        </div>
+                        <button id="copyResponse" type="button" class="btn btn-primary mx-3 my-1">Copiar</button>
+                        <button id="clearResponse" type="button" class="btn btn-custom mx-3 my-1">Limpiar</button>
+                        <button id="jsonFormat" type="button" class="btn btn-custom mx-3 my-1">JSON Formatter</button>
+                        <button id="xmlFormat" type="button" class="btn btn-custom mx-3 my-1">XML Formatter</button>
+                        <button id="exportJson" type="button" class="btn btn-custom mx-3 my-1">Export JSON</button>
+                        <button id="exportXml" type="button" class="btn btn-custom mx-3 my-1">Export XML</button>
+                    </article>
+
+                </div> <!-- card.// -->
+            </div>
+        </div>
+</div>
+
+
+
+@section Scripts
+{
+    @Scripts.Render("~/Scripts/index.js")
+}
