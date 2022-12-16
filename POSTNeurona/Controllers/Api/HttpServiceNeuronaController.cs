@@ -205,6 +205,10 @@ namespace POSTNeurona.Controllers.Api
                     break;
                 case "7":
                     //no autos
+                    sufijo = "_middleware";
+                    break;
+                case "8":
+                    //no autos
                     sufijo = "_na";
                     break;
             }

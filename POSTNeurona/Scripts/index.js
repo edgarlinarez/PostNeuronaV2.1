@@ -395,7 +395,7 @@ $('#listaHistorial').on('click', '.btn-close',function () {
 });
 
 function cargarMetodos() {
-    var array = ["Ahorro", "Blindaje Total", "Ciberseguridad", "Fenix", "GMM", "Hogar Protegido", "No Autos"];
+    var array = ["Ahorro", "Blindaje Total", "Ciberseguridad", "Fenix", "GMM", "Hogar Protegido", "No Autos","Middleware"];
     array.sort();
     addOptions("method_api", array);
 }
