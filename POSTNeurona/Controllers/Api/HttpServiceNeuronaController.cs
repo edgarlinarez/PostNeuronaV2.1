@@ -107,6 +107,8 @@ namespace POSTNeurona.Controllers.Api
             {
                 try
                 {
+                    ServicePointManager.Expect100Continue = true;
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                     log.Info($"Conectando al Endpoint (PostToken) {urlToken}");
                     var request = (HttpWebRequest)WebRequest.Create(urlToken);
                     request.Timeout = 5000;
@@ -265,7 +267,8 @@ namespace POSTNeurona.Controllers.Api
                             streamWriter.Close();
                         }
                     }
-
+                    ServicePointManager.Expect100Continue = true;
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                     using (WebResponse response = request.GetResponse())
                     {
                         using (Stream strReader = response.GetResponseStream())
