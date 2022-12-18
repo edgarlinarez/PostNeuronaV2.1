@@ -107,8 +107,6 @@ namespace POSTNeurona.Controllers.Api
             {
                 try
                 {
-                    ServicePointManager.Expect100Continue = true;
-                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                     log.Info($"Conectando al Endpoint (PostToken) {urlToken}");
                     var request = (HttpWebRequest)WebRequest.Create(urlToken);
                     request.Timeout = 5000;
@@ -119,7 +117,9 @@ namespace POSTNeurona.Controllers.Api
                     if (subMetodo == "")
                     {
                         request.Headers[nameKey] = authTk;
-                    }                    
+                    }
+
+                    request.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
 
                     using (WebResponse response = request.GetResponse())
                     {
@@ -267,8 +267,7 @@ namespace POSTNeurona.Controllers.Api
                             streamWriter.Close();
                         }
                     }
-                    ServicePointManager.Expect100Continue = true;
-                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                    request.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
                     using (WebResponse response = request.GetResponse())
                     {
                         using (Stream strReader = response.GetResponseStream())
