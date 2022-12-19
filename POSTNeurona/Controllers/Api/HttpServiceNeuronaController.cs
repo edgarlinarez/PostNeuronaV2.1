@@ -138,7 +138,7 @@ namespace POSTNeurona.Controllers.Api
                                 res = jsonObj[responseTK].ToString();
                                 log.Info($"Respuesta 200 (PostToken): Respuesta exitosa.");
                                 resultado.Add("OK", "true");
-                                resultado.Add("msg", res);
+                                resultado.Add("msg", $"Respuesta 200 (PostToken): Respuesta exitosa. \n\r {res}");
                             }
                         }
                     }
@@ -283,7 +283,7 @@ namespace POSTNeurona.Controllers.Api
                                 string res = objReader.ReadToEnd();
                                 log.Info($"Respuesta 200: Respuesta exitosa.");
                                 resultado.Add("OK", "true");
-                                resultado.Add("msg", res);
+                                resultado.Add("msg", $"Respuesta 200: Respuesta exitosa. \n\r {res}");
                                 resultado.Add("id", Guid.NewGuid().ToString());
                             }
                         }
