@@ -138,7 +138,7 @@ namespace POSTNeurona.Controllers.Api
                                 res = jsonObj[responseTK].ToString();
                                 log.Info($"Respuesta 200 (PostToken): Respuesta exitosa.");
                                 resultado.Add("OK", "true");
-                                resultado.Add("msg", $"Respuesta 200 (PostToken): Respuesta exitosa. \n\r {res}");
+                                resultado.Add("msg",res);
                             }
                         }
                     }
